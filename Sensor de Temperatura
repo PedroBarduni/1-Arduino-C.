@@ -1,0 +1,57 @@
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(12,11,5,4,3,2);
+
+// Define o pino analogico A5 como entrada do Sensor de Temperatura
+int sensorTempPino = 5;
+// Definindo as portas dos leds 
+int ledTempBaixa = 6;
+int ledTempAlta = 7;
+// Temperatura baixa é abaixo de zero grau Celsius
+int tempBaixa = 0;
+// Temperatura alta é acima de 40º graus Celsius
+int tempAlta = 40;
+// Recebe a leitura da tensão do Sensor de Temperatura
+int sensorTempTensao;
+
+float tensao;
+float tempCels;
+float tempFahr;
+
+void setup(){
+	pinMode(ledTempBaixa, OUTPUT);
+	pinMode(ledTempAlta, OUTPUT);
+	lcd.begin(16,2);
+	lcd.print("Temperatura:");
+	lcd.setCursor(0,1);
+	lcd.print("       C       F");	
+}
+
+void loop(){
+	sensorTempTensao = analogRead(sensorTempPino);
+ 	// converte a tensão lida
+	tensao = sensorTempTensao*5;
+	tensao/=1024; // tensao = tensao / 1024;
+	// converte a tensão lida em Graus Celsius
+	tempCels = (tensao-0.5)*100;
+	// converte a temperatura em Graus Celsius para Fahrenheit
+	tempFahr = (tempCels*9/5)+32;
+	lcd.setCursor(0,1);
+	lcd.print(tempCels);
+	lcd.setCursor(9,1);
+	lcd.print(tempFahr);
+	// Acende ou apaga os leds de temperatura alta e baixa
+	if(tempCels>=tempAlta){
+		digitalWrite(ledTempBaixa, LOW);
+		digitalWrite(ledTempAlta, HIGH);
+	}
+	else if(tempCels<=tempBaixa){
+		digitalWrite(ledTempBaixa, HIGH);
+		digitalWrite(ledTempAlta, LOW);
+	}
+	else{
+		digitalWrite(ledTempBaixa, LOW);
+		digitalWrite(ledTempAlta, LOW);
+	}
+	delay(1000);
+}
