@@ -1,0 +1,58 @@
+#include <Servo.h> // biblioteca
+#define bt1 2
+#define bt2 3
+#define ledV 10
+#define ledA 11
+//const int btn1 = 2
+
+int posicao1 = 0;
+int posicao2 = 0;
+Servo s1; // s é uma instância (objeto) do Servo
+Servo s2;
+
+void setup(){
+	Serial.begin(9600);
+	s1.attach(7);
+	s2.attach(13);
+	pinMode(bt1, INPUT);
+	pinMode(bt2, INPUT);
+	pinMode(ledV, OUTPUT);
+	pinMode(ledA, OUTPUT);
+}
+
+void loop(){
+	if(digitalRead(bt1) == HIGH && posicao1 <=180){
+		digitalWrite(ledV,HIGH);
+		digitalWrite(ledA,LOW);
+		posicao1++; //incremento da posição
+		Serial.println(posicao1);
+		s1.write(posicao1); 
+		delay(5);	
+	}
+	else if(digitalRead(bt1) == HIGH && posicao1 >=180 && posicao2 <=180){
+		digitalWrite(ledV,HIGH);
+		digitalWrite(ledA,HIGH);
+		posicao2++;
+		Serial.println(posicao2);
+		s2.write(posicao2);
+		delay(5);
+	}
+	if(digitalRead(bt2) == HIGH && posicao2>=0){
+		digitalWrite(ledV,HIGH);
+		digitalWrite(ledA,HIGH);
+		posicao2--; //decremento da posição
+		Serial.println(posicao2);
+		s2.write(posicao2); 
+		delay(5);	
+	}
+	
+	else if(digitalRead(bt2) == HIGH && posicao1 >=0){
+		digitalWrite(ledV,HIGH);
+		digitalWrite(ledA,LOW);
+		posicao1--;
+		Serial.println(posicao1);
+		s1.write(posicao1);
+		delay(5);
+	}
+}
+
