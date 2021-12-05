@@ -1,0 +1,119 @@
+int A = 10, B = 9, C = 5, D = 6;
+int E = 7, F = 12, G = 13, DP = 4;
+
+int ligado = 1, desligado = 0;
+
+void setup()
+{
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+  pinMode(DP, OUTPUT);
+}
+
+void loop()
+{
+  // número 0
+     digitalWrite(A, ligado);
+     digitalWrite(B, ligado);
+  	 digitalWrite(C, ligado);
+  	 digitalWrite(D, ligado);
+  	 digitalWrite(E, ligado);
+  	 digitalWrite(F, ligado);
+  	 digitalWrite(G, desligado);
+     delay(1000);
+  
+    // número 1
+     digitalWrite(A, desligado);
+     digitalWrite(B, ligado);
+  	 digitalWrite(C, ligado);
+  	 digitalWrite(D, desligado);
+  	 digitalWrite(E, desligado);
+  	 digitalWrite(F, desligado);
+  	 digitalWrite(G, desligado);
+     delay(1000);
+  
+  // número 2
+     digitalWrite(A, ligado);
+     digitalWrite(B, ligado);
+  	 digitalWrite(C, desligado);
+  	 digitalWrite(D, ligado);
+  	 digitalWrite(E, ligado);
+  	 digitalWrite(F, desligado);
+  	 digitalWrite(G, ligado);
+     delay(1000);
+  
+  // número 3
+     digitalWrite(A, ligado);
+     digitalWrite(B, ligado);
+  	 digitalWrite(C, ligado);
+  	 digitalWrite(D, ligado);
+  	 digitalWrite(E, desligado);
+  	 digitalWrite(F, desligado);
+  	 digitalWrite(G, ligado);
+     delay(1000);
+  
+  // número 4
+     digitalWrite(A, desligado);
+     digitalWrite(B, ligado);
+  	 digitalWrite(C, ligado);
+  	 digitalWrite(D, desligado);
+  	 digitalWrite(E, desligado);
+  	 digitalWrite(F, ligado);
+  	 digitalWrite(G, ligado);
+     delay(1000);
+  
+  // número 5
+     digitalWrite(A, ligado);
+     digitalWrite(B, desligado);
+  	 digitalWrite(C, ligado);
+  	 digitalWrite(D, ligado);
+  	 digitalWrite(E, desligado);
+  	 digitalWrite(F, ligado);
+  	 digitalWrite(G, ligado);
+     delay(1000);
+  
+  // número 6
+     digitalWrite(A, ligado);
+     digitalWrite(B, desligado);
+  	 digitalWrite(C, ligado);
+  	 digitalWrite(D, ligado);
+  	 digitalWrite(E, ligado);
+  	 digitalWrite(F, ligado);
+  	 digitalWrite(G, ligado);
+     delay(1000);
+  
+    // número 7
+     digitalWrite(A, ligado);
+     digitalWrite(B, ligado);
+  	 digitalWrite(C, ligado);
+  	 digitalWrite(D, desligado);
+  	 digitalWrite(E, desligado);
+  	 digitalWrite(F, ligado);
+  	 digitalWrite(G, desligado);
+     delay(1000);
+  
+  // número 8
+     digitalWrite(A, ligado);
+     digitalWrite(B, ligado);
+  	 digitalWrite(C, ligado);
+  	 digitalWrite(D, ligado);
+  	 digitalWrite(E, ligado);
+  	 digitalWrite(F, ligado);
+  	 digitalWrite(G, ligado);
+     delay(1000);
+  
+   // número 9
+     digitalWrite(A, ligado);
+     digitalWrite(B, ligado);
+  	 digitalWrite(C, ligado);
+  	 digitalWrite(D, ligado);
+  	 digitalWrite(E, desligado);
+  	 digitalWrite(F, ligado);
+  	 digitalWrite(G, ligado);
+     delay(1000);
+}
