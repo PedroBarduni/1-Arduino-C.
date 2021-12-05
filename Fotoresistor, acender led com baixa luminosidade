@@ -1,0 +1,20 @@
+// Acender Led quando luminosidade estiver baixa
+int ledAmar = 6;
+int ldr = A5;
+int valor;
+
+void setup(){
+	Serial.begin(9600); // mostrar valor do LDR no "Monitor Serial"
+	pinMode(ledAmar,OUTPUT);
+}
+
+void loop(){
+	valor = analogRead(ldr);
+	if(valor<500){
+		digitalWrite(ledAmar,HIGH); // acender o led		
+ 	}
+ 	else {
+ 		digitalWrite(ledAmar,LOW); //apagar led
+ 	}
+ 	Serial.println(valor); // mostrar valor do LDR no "Monitor Serial"
+}
