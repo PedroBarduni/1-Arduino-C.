@@ -1,0 +1,34 @@
+// Biblioteca
+#include <Servo.h> 
+#define bt1 2
+#define bt2 3
+//const int btn1 = 2
+
+int posicao = 0;
+Servo s; // s é um instância (objeto) do Servo
+
+void setup(){
+	Serial.begin(9600);
+	s.attach(7);
+	pinMode(bt1, INPUT);
+	pinMode(bt2, INPUT);
+	
+}
+
+void loop(){
+	Serial.println(digitalRead(bt1));
+	Serial.println(digitalRead(bt2));
+	
+	if(digitalRead(bt1) == HIGH && posicao <=180){
+		posicao++; // Incremento da posição
+		s.write(posicao);
+		delay(5);
+	}
+	
+	if(digitalRead(bt2) == HIGH && posicao >=0){
+		posicao--; // Decremento da posição
+		s.write(posicao);
+		delay(5);
+	}
+	
+}
