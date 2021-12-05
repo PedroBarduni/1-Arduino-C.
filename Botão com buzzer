@@ -1,0 +1,18 @@
+int buzzer = 7;
+int botao = 3;
+int valor;
+
+void setup(){
+	pinMode(buzzer,OUTPUT);
+	pinMode(botao,INPUT);
+}
+
+void loop(){
+	valor = digitalRead(botao);
+	if(valor == HIGH){
+		tone(buzzer, 150);
+		delay(500);
+	}
+	noTone(buzzer);
+	delay(5000);
+}
