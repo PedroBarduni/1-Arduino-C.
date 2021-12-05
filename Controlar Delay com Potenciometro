@@ -1,0 +1,17 @@
+int ledAmar = 1;
+int pot = A4;
+int valor;
+
+void setup(){
+//	Serial.begin(9600); //monstro o valor do potenciometro no monitor serial
+	pinMode(ledAmar,OUTPUT);
+}
+
+void loop(){
+	valor = analogRead(pot);
+	digitalWrite(ledAmar,HIGH);
+	delay(valor);
+	digitalWrite(ledAmar,LOW);
+	delay(valor);
+//	Serial.println(valor);
+}
