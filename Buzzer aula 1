@@ -1,0 +1,39 @@
+/*
+Emite o som
+tone(pino, frequencia)      Pino = Entrada positiva do Buzzer
+tone(pino, frequencia, duracao);
+
+parar o som
+noTone(pino);
+*/
+
+int buzzer = 6;  
+
+void setup(){
+	pinMode(buzzer,OUTPUT);	
+}
+
+void loop(){
+	tone(buzzer, 261);
+	delay(500);
+	tone(buzzer, 277);
+	delay(500);
+	tone(buzzer, 294);
+	delay(500);
+	tone(buzzer, 311);
+	delay(500);
+	tone(buzzer, 330);
+	delay(500);
+	tone(buzzer, 349);
+	delay(500);
+	tone(buzzer, 370);
+	delay(500);
+	tone(buzzer, 392);
+	delay(500);
+	tone(buzzer, 415);
+	delay(500);
+	tone(buzzer, 440);
+	delay(500);
+	noTone(buzzer);
+	delay(500);
+}
