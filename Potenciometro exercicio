@@ -1,0 +1,40 @@
+/* Crie um programa que faça a seguinte operação
+no Arduino. Se o valor do potenciometro for maior
+ou igual a 800, somente os leds vermelhos ficarão
+acesos e piscando ao mesmo tempo. (delay de 1 seg).
+Caso contrário os leds amarelos ficarão acesos alternando 
+de um para o outro.
+*/ 
+
+int ledver1 = 1, ledver2 = 2, ledver3 = 3, ledama4 = 4, ledama5 = 5, pot = A5, valor; //valor = potenciometro
+void setup(){
+	pinMode(ledver1,OUTPUT);
+	pinMode(ledver2,OUTPUT);
+	pinMode(ledver3,OUTPUT);
+	pinMode(ledama4,OUTPUT);
+	pinMode(ledama5,OUTPUT);
+}
+
+void loop(){
+	valor = analogRead(pot); // pegando o valor do potenciometro
+	if (valor>=800){
+		digitalWrite(ledver1,HIGH);
+		digitalWrite(ledver2,HIGH);
+		digitalWrite(ledver3,HIGH);
+		delay(1000);
+		digitalWrite(ledver1,LOW);
+		digitalWrite(ledver2,LOW);		
+		digitalWrite(ledver3,LOW);
+		delay(1000);	
+	}	
+	else {
+		digitalWrite(ledama4,HIGH);
+		delay(1000);
+		digitalWrite(ledama4,LOW);
+		delay(1000);
+		digitalWrite(ledama5,HIGH);
+		delay(1000);
+		digitalWrite(ledama5,LOW);
+		delay(1000);
+	}
+}
