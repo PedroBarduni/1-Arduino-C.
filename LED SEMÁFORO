@@ -1,0 +1,22 @@
+int pdigital6 = 6; //escopo global
+int pdigital7 = 7;
+int pdigital8 = 8;
+void setup (){ // Configuração
+	pinMode(pdigital6,OUTPUT); //pinMode configura o modo: (Saída ou Entrada)
+	pinMode(pdigital7,OUTPUT);
+	pinMode(pdigital8,OUTPUT);
+}
+
+void loop (){ // Repetição
+	// HIGH -> + 5V
+	//LOW -> -5V
+	digitalWrite(pdigital6,HIGH); // acende a lampada
+	delay(2000); //milisegundos) // espera 2 segundos...
+	digitalWrite(pdigital6,LOW); // Apaga a lampada
+	digitalWrite(pdigital7,HIGH);
+	delay(2000);
+	digitalWrite(pdigital7,LOW);
+	digitalWrite(pdigital8,HIGH);
+	delay(2000);
+	digitalWrite(pdigital8,LOW);
+}
