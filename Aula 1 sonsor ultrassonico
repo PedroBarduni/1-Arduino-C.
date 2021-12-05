@@ -1,0 +1,21 @@
+int trigger = 7; // emite o sinal ultrassônico
+int echo = 6; // recebe o sinal ultrassônico 
+int cm;
+
+void setup(){
+	Serial.begin(9600);
+}
+
+void loop(){
+	pinMode(trigger,OUTPUT);
+	digitalWrite(trigger,LOW);
+	delayMicroseconds(2);
+	digitalWrite(trigger,HIGH);
+	delayMicroseconds(10);
+	digitalWrite(trigger,LOW);
+	pinMode(echo,INPUT);
+	cm = 0.01723 * pulseIn(echo,HIGH);
+	Serial.print(cm);
+	Serial.println("cm");
+	delay(100);
+}
