@@ -1,0 +1,22 @@
+int ledAzul = 1, ledVer = 4, pot = A4, valor; // valor = valor do potenciometro
+void setup(){ //procedimento de configuração
+	pinMode(ledAzul, OUTPUT);
+	pinMode(ledVer, OUTPUT);
+}
+
+void loop(){ //procedimento de repetição
+	valor = analogRead(pot); //Pegando o valor do Potenciometro
+	if(valor>=800){ // se o valor...
+		digitalWrite(ledVer,HIGH);
+		delay(1000);
+		digitalWrite(ledAzul,LOW);
+		delay(1000);
+		
+	}
+	else{ // senão...
+		digitalWrite(ledVer,LOW);
+		delay(1000);
+		digitalWrite(ledAzul,HIGH);
+		delay(1000);
+	}
+}
