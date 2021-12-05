@@ -1,0 +1,63 @@
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+  int valor = 5000;
+  int buzzer = 9;
+  int ledVd = 13;
+  int ledA = 10;
+  int ledVm = 8;
+  int trigger = 7;
+  int echo = 6;
+  int cm;
+
+void setup()
+{
+  pinMode(ledVd, OUTPUT);
+  pinMode(ledA, OUTPUT);
+  pinMode(ledVm, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop() {
+  pinMode(trigger, OUTPUT);
+    digitalWrite(trigger, LOW);
+    delayMicroseconds(2);
+    digitalWrite(trigger,HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigger,LOW);
+    pinMode(echo,INPUT);
+    cm = 0.01723 * pulseIn(echo,HIGH);
+    Serial.print(cm);
+    Serial.println("cm");
+    delay(100);
+
+  if (cm < 30){
+    lcd.begin(16, 2);
+    lcd.print("VAI BATER!");
+    digitalWrite(ledVm, HIGH);
+    digitalWrite(ledVd, LOW);
+    digitalWrite(ledA, LOW);
+    tone(buzzer, 277);
+      delay(1000);
+}
+
+  else 
+    if (cm > 30, cm <= 120){
+    lcd.begin(16, 2);
+    lcd.print("CUIDADO!");
+    digitalWrite(ledVm, LOW);
+    digitalWrite(ledVd, LOW);
+    digitalWrite(ledA, HIGH);
+    tone(buzzer, 400);
+      delay(1000);
+}
+  else {
+    lcd.begin(16, 2);
+    lcd.print("ATENCAO!");
+    digitalWrite(ledVm, LOW);
+    digitalWrite(ledVd, HIGH);
+    digitalWrite(ledA, LOW);
+    tone(buzzer, 570);
+      delay(1000);
+  }
+}
