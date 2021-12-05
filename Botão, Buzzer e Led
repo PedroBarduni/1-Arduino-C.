@@ -1,0 +1,24 @@
+int buzzer = 7;
+int botao = 3;
+int led = 1;
+int valor;
+
+void setup(){
+	pinMode(buzzer,OUTPUT);
+	pinMode(led,OUTPUT);
+	pinMode(botao,INPUT);
+}
+
+void loop(){
+	// HIGH -> Botão clicado
+	//LOW -> Botão não clicado
+	valor = digitalRead(botao);
+	if(valor == HIGH){
+		tone(buzzer, 150);
+		digitalWrite(led,HIGH);
+		delay(500);
+	}
+	noTone(buzzer);
+	digitalWrite(led,LOW);
+	delay(500);
+}
